@@ -1,0 +1,57 @@
+network: # QN0 -> LC -> QN1 -> LC -> QN2 -> LC -> QN3 -> LC -> QN4
+  - name: "QuantumNetwork"
+    submodules:
+      - type: "QuantumNode"
+        name: "qn0"
+        parameters:
+          storage_qbits_per_port: 50
+          decoherence_rate: 20
+      - type: "LinkController"
+        name: "lc0"
+        parameters:
+          t_clock: 10. # us
+      - type: "QuantumNode"
+        name: "qn1"
+        parameters:
+          storage_qbits_per_port: 50
+          decoherence_rate: 20
+      - type: "LinkController"
+        name: "lc1"
+        parameters:
+          t_clock: 10.  # us
+      - type: "QuantumNode"
+        name: "qn2"
+        parameters:
+          storage_qbits_per_port: 50
+          decoherence_rate: 20
+      - type: "LinkController"
+        name: "lc2"
+        parameters:
+          t_clock: 10. # us
+      - type: "QuantumNode"
+        name: "qn3"
+        parameters:
+          storage_qbits_per_port: 50
+          decoherence_rate: 20
+      - type: "LinkController"
+        name: "lc3"
+        parameters:
+          t_clock: 10. # us
+      - type: "QuantumNode"
+        name: "qn4"
+        parameters:
+          storage_qbits_per_port: 50
+          decoherence_rate: 20
+    connections:
+      - for i in 0 to 3:
+          source: "qn{i}.q1"
+          target: "lc{i}.lc0"
+          channel: "default"
+          parameters:
+            delay: 9
+      - for i in 0 to 3:
+          source: "lc{i}.lc1"
+          target: "qn{i+1}.q0"
+          channel: "default"
+          parameters:
+            delay: 9

@@ -1,0 +1,305 @@
+repetitions: 1
+num_rngs: 50
+simulate_until: 30000000
+yaml_directory: "./yaml/"
+output_dir: "out3"
+engine: "simpy"
+time_unit: "us"
+
+metrics:
+  - name: "queuing_time"
+    type: ["vector", "mean", "percentiles"]
+  - name: "throughput"
+    type: ["vector"]
+  - name: "IRG"
+    type: ["vector"]
+  - name: "latency"
+    type: ["vector"]
+  - name: "queue_size"
+    type: ["vector"]
+  - name: "queue_size_free"
+    type: [ "vector" ]
+  - name: "fidelity"
+    type: ["vector"]
+  - name: "rendezvous_node"
+    type: ["vector"]
+
+max_processes: 8
+log_level: "debug"
+
+
+# The following parameters are accessible to all modules in the simulation
+global_params:
+  request_generation:
+    increase_at: 15000000
+    increase_by: 300
+  aqm_params:
+    R_plus: 0.05
+    C: 4000
+    N_minus: 4
+    q_ref: 5
+  flow_descriptors:
+    - flow_id: 0
+      flow_type: "default"
+      source: "qn0"
+      destination: "qn4"
+      flow_priority: 0
+      success_probs: # success probability of LLE attempts on each link, due to pump power
+        - 0.1
+        - 0.04
+        - 0.1
+        - 0.1
+      path:
+        - "qn0"
+        - "lc0"
+        - "qn1"
+        - "lc1"
+        - "qn2"
+        - "lc2"
+        - "qn3"
+        - "lc3"
+        - "qn4"
+      direction: "upstream"  # useful for nodes to infer the output port of messages (no routing for now)
+      request_rate: 1700
+    - flow_id: 2
+      flow_type: "default"
+      source: "qn0"
+      destination: "qn4"
+      flow_priority: 0
+      success_probs: # success probability of LLE attempts on each link, due to pump power
+        - 0.1
+        - 0.04
+        - 0.1
+        - 0.1
+      path:
+        - "qn0"
+        - "lc0"
+        - "qn1"
+        - "lc1"
+        - "qn2"
+        - "lc2"
+        - "qn3"
+        - "lc3"
+        - "qn4"
+      direction: "upstream"  # useful for nodes to infer the output port of messages (no routing for now)
+      request_rate: 1700
+    - flow_id: 4
+      flow_type: "default"
+      source: "qn0"
+      destination: "qn4"
+      flow_priority: 0
+      success_probs: # success probability of LLE attempts on each link, due to pump power
+        - 0.1
+        - 0.04
+        - 0.1
+        - 0.1
+      path:
+        - "qn0"
+        - "lc0"
+        - "qn1"
+        - "lc1"
+        - "qn2"
+        - "lc2"
+        - "qn3"
+        - "lc3"
+        - "qn4"
+      direction: "upstream"  # useful for nodes to infer the output port of messages (no routing for now)
+      request_rate: 1700
+    - flow_id: 6
+      flow_type: "default"
+      source: "qn0"
+      destination: "qn4"
+      flow_priority: 0
+      success_probs: # success probability of LLE attempts on each link, due to pump power
+        - 0.1
+        - 0.04
+        - 0.1
+        - 0.1
+      path:
+        - "qn0"
+        - "lc0"
+        - "qn1"
+        - "lc1"
+        - "qn2"
+        - "lc2"
+        - "qn3"
+        - "lc3"
+        - "qn4"
+      direction: "upstream"  # useful for nodes to infer the output port of messages (no routing for now)
+      request_rate: 1700
+    - flow_id: 8
+      flow_type: "default"
+      source: "qn0"
+      destination: "qn4"
+      flow_priority: 0
+      success_probs: # success probability of LLE attempts on each link, due to pump power
+        - 0.1
+        - 0.04
+        - 0.1
+        - 0.1
+      path:
+        - "qn0"
+        - "lc0"
+        - "qn1"
+        - "lc1"
+        - "qn2"
+        - "lc2"
+        - "qn3"
+        - "lc3"
+        - "qn4"
+      direction: "upstream"  # useful for nodes to infer the output port of messages (no routing for now)
+      request_rate: 1700
+    - flow_id: 10
+      flow_type: "default"
+      source: "qn0"
+      destination: "qn4"
+      flow_priority: 0
+      success_probs: # success probability of LLE attempts on each link, due to pump power
+        - 0.1
+        - 0.04
+        - 0.1
+        - 0.1
+      path:
+        - "qn0"
+        - "lc0"
+        - "qn1"
+        - "lc1"
+        - "qn2"
+        - "lc2"
+        - "qn3"
+        - "lc3"
+        - "qn4"
+      direction: "upstream"  # useful for nodes to infer the output port of messages (no routing for now)
+      request_rate: 1700
+    - flow_id: 12
+      flow_type: "default"
+      source: "qn0"
+      destination: "qn4"
+      flow_priority: 0
+      success_probs: # success probability of LLE attempts on each link, due to pump power
+        - 0.1
+        - 0.04
+        - 0.1
+        - 0.1
+      path:
+        - "qn0"
+        - "lc0"
+        - "qn1"
+        - "lc1"
+        - "qn2"
+        - "lc2"
+        - "qn3"
+        - "lc3"
+        - "qn4"
+      direction: "upstream"  # useful for nodes to infer the output port of messages (no routing for now)
+      request_rate: 1700
+    - flow_id: 14
+      flow_type: "default"
+      source: "qn0"
+      destination: "qn4"
+      flow_priority: 0
+      success_probs: # success probability of LLE attempts on each link, due to pump power
+        - 0.1
+        - 0.04
+        - 0.1
+        - 0.1
+      path:
+        - "qn0"
+        - "lc0"
+        - "qn1"
+        - "lc1"
+        - "qn2"
+        - "lc2"
+        - "qn3"
+        - "lc3"
+        - "qn4"
+      direction: "upstream"  # useful for nodes to infer the output port of messages (no routing for now)
+      request_rate: 1700
+    - flow_id: 16
+      flow_type: "default"
+      source: "qn0"
+      destination: "qn4"
+      flow_priority: 0
+      success_probs: # success probability of LLE attempts on each link, due to pump power
+        - 0.1
+        - 0.04
+        - 0.1
+        - 0.1
+      path:
+        - "qn0"
+        - "lc0"
+        - "qn1"
+        - "lc1"
+        - "qn2"
+        - "lc2"
+        - "qn3"
+        - "lc3"
+        - "qn4"
+      direction: "upstream"  # useful for nodes to infer the output port of messages (no routing for now)
+      request_rate: 1700
+    - flow_id: 18
+      flow_type: "default"
+      source: "qn0"
+      destination: "qn4"
+      flow_priority: 0
+      success_probs: # success probability of LLE attempts on each link, due to pump power
+        - 0.1
+        - 0.04
+        - 0.1
+        - 0.1
+      path:
+        - "qn0"
+        - "lc0"
+        - "qn1"
+        - "lc1"
+        - "qn2"
+        - "lc2"
+        - "qn3"
+        - "lc3"
+        - "qn4"
+      direction: "upstream"  # useful for nodes to infer the output port of messages (no routing for now)
+      request_rate: 1700
+    - flow_id: 20
+      flow_type: "default"
+      source: "qn0"
+      destination: "qn4"
+      flow_priority: 0
+      success_probs: # success probability of LLE attempts on each link, due to pump power
+        - 0.1
+        - 0.04
+        - 0.1
+        - 0.1
+      path:
+        - "qn0"
+        - "lc0"
+        - "qn1"
+        - "lc1"
+        - "qn2"
+        - "lc2"
+        - "qn3"
+        - "lc3"
+        - "qn4"
+      direction: "upstream"  # useful for nodes to infer the output port of messages (no routing for now)
+      request_rate: 1700
+    - flow_id: 22
+      flow_type: "default"
+      source: "qn0"
+      destination: "qn4"
+      flow_priority: 0
+      success_probs: # success probability of LLE attempts on each link, due to pump power
+        - 0.1
+        - 0.04
+        - 0.1
+        - 0.1
+      path:
+        - "qn0"
+        - "lc0"
+        - "qn1"
+        - "lc1"
+        - "qn2"
+        - "lc2"
+        - "qn3"
+        - "lc3"
+        - "qn4"
+      direction: "upstream"  # useful for nodes to infer the output port of messages (no routing for now)
+      request_rate: 1700
